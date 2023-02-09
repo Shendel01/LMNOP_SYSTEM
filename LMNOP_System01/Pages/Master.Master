@@ -16,6 +16,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="../Css/Css_general.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,7 +25,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
         
-      <img src="../Images/lmnop_logo.png" width="130" height="150">
+      <img src="../Images/lmnop_logo.png" width="100" height="150">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -71,8 +72,8 @@
 
       <div class="navbar-item" runat="server" id="divbuttons">
         <div class="buttons">
-            <asp:Button text="Registrarse" runat="server" CssClass="button is-primary" OnClick="Unnamed_Click"/>
-            <asp:Button text="Iniciar sesión" runat="server" CssClass="button is-light" OnClick="Unnamed_Click1"/>
+            <asp:Button text="Registrarse" runat="server" CssClass="button is-primary is-rounded is-responsive" OnClick="Unnamed_Click"/>
+            <asp:Button text="Iniciar sesión" runat="server" CssClass="button is-primary is-light is-rounded is-responsive" OnClick="Unnamed_Click1"/>
         </div>
       </div>
 

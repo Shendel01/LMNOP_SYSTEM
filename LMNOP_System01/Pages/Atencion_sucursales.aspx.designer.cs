@@ -42,12 +42,21 @@ namespace LMNOP_System01.Pages
         protected global::System.Web.UI.WebControls.TextBox division;
 
         /// <summary>
-        /// Control fecha.
+        /// Control Enviar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fecha;
+        protected global::System.Web.UI.WebControls.Button Enviar;
+
+        /// <summary>
+        /// Control gridview.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridview;
     }
 }

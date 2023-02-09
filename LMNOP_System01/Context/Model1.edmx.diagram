@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="LMNOP_SystemModel.Roles_Permisos" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LMNOP_SystemModel.Usuarios" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LMNOP_SystemModel.Centro_servicio" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Atencion_Sucursales" Width="1.5" PointX="8" PointY="1.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

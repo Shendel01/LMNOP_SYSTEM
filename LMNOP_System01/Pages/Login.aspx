@@ -34,9 +34,11 @@
 
          <%--Validaciones final--%>
 
-        <asp:Button runat="server" id="ingresar" class="button is-primary" text="Ingresar" OnClick="ingresar_Click"/>
+        <asp:Button runat="server" id="ingresar" class="button is-success is-outlined is-rounded is-responsive" text="Ingresar" OnClick="ingresar_Click"/>
+        <br />
         <div class="control">
-                <a class="button is-primary is-light" href="Index.aspx">Cancelar</a>
+            <br />
+                <a class="button is-primary is-light is-rounded is-responsive" href="Index.aspx">Cancelar</a>
             </div>
     </div>
 </asp:Content>

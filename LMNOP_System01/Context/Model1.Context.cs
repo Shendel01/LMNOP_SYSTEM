@@ -32,6 +32,7 @@ namespace LMNOP_System01.Context
         public virtual DbSet<Roles_Permisos> Roles_Permisos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Centro_servicio> Centro_servicio { get; set; }
+        public virtual DbSet<Atencion_Sucursales> Atencion_Sucursales { get; set; }
     
         public virtual ObjectResult<sp_datos_Result> sp_datos()
         {
@@ -153,6 +154,36 @@ namespace LMNOP_System01.Context
                 new ObjectParameter("Total", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Guardar", num_OFParameter, codigo_primeraParameter, descripcionParameter, kgParameter, num_tarimasParameter, operadoresParameter, turnoParameter, pedaceriaParameter, faltanteParameter, sobranteParameter, rechazoParameter, observacionesParameter, totalParameter);
+        }
+    
+        public virtual ObjectResult<ConsultarAS_Result> ConsultarAS()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarAS_Result>("ConsultarAS");
+        }
+    
+        public virtual int GuardarAS(Nullable<int> id_AtencionSucursales, Nullable<int> num_maquila, Nullable<int> division, Nullable<System.DateTime> fecha, Nullable<System.TimeSpan> hora)
+        {
+            var id_AtencionSucursalesParameter = id_AtencionSucursales.HasValue ?
+                new ObjectParameter("Id_AtencionSucursales", id_AtencionSucursales) :
+                new ObjectParameter("Id_AtencionSucursales", typeof(int));
+    
+            var num_maquilaParameter = num_maquila.HasValue ?
+                new ObjectParameter("Num_maquila", num_maquila) :
+                new ObjectParameter("Num_maquila", typeof(int));
+    
+            var divisionParameter = division.HasValue ?
+                new ObjectParameter("Division", division) :
+                new ObjectParameter("Division", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaParameter = hora.HasValue ?
+                new ObjectParameter("Hora", hora) :
+                new ObjectParameter("Hora", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GuardarAS", id_AtencionSucursalesParameter, num_maquilaParameter, divisionParameter, fechaParameter, horaParameter);
         }
     }
 }

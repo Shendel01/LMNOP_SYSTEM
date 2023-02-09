@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LMNOP_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Atencion_Sucursales">
+          <Key>
+            <PropertyRef Name="Id_AtencionSucursales" />
+          </Key>
+          <Property Name="Id_AtencionSucursales" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_maquila" Type="int" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="500" />
+          <Property Name="Division" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="nvarchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Centro_servicio">
           <Key>
             <PropertyRef Name="Num_OF" />
@@ -67,6 +78,7 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Id_rol" Type="int" />
         </EntityType>
         <Function Name="Consultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Guardar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Num_OF" Type="int" Mode="In" />
           <Parameter Name="Codigo_primera" Type="varchar" Mode="In" />
@@ -81,6 +93,13 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Parameter Name="Rechazo" Type="varchar" Mode="In" />
           <Parameter Name="Observaciones" Type="varchar" Mode="In" />
           <Parameter Name="Total" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="GuardarAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_AtencionSucursales" Type="int" Mode="In" />
+          <Parameter Name="Num_maquila" Type="int" Mode="In" />
+          <Parameter Name="Division" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="Hora" Type="time" Mode="In" />
         </Function>
         <Function Name="sp_datos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -100,6 +119,7 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Parameter Name="Patron" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="LMNOP_SystemModelStoreContainer">
+          <EntitySet Name="Atencion_Sucursales" EntityType="Self.Atencion_Sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Centro_servicio" EntityType="Self.Centro_servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -209,6 +229,15 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
             <Parameter Name="Total" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="Centro_servicio" EntityType="LMNOP_SystemModel.Centro_servicio" />
+          <FunctionImport Name="ConsultarAS" ReturnType="Collection(LMNOP_SystemModel.ConsultarAS_Result)" />
+          <FunctionImport Name="GuardarAS">
+            <Parameter Name="Id_AtencionSucursales" Mode="In" Type="Int32" />
+            <Parameter Name="Num_maquila" Mode="In" Type="Int32" />
+            <Parameter Name="Division" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="Hora" Mode="In" Type="Time" />
+          </FunctionImport>
+          <EntitySet Name="Atencion_Sucursales" EntityType="LMNOP_SystemModel.Atencion_Sucursales" />
         </EntityContainer>
         <ComplexType Name="sp_datos_Result">
           <Property Type="Int32" Name="Id_Usuario" Nullable="false" />
@@ -264,6 +293,25 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Rechazo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Total" Type="Decimal" Precision="20" Scale="6" />
+        </EntityType>
+        <ComplexType Name="ConsultarAS_Result">
+          <Property Type="Int32" Name="Id_AtencionSucursales" Nullable="false" />
+          <Property Type="Int32" Name="Num_maquila" Nullable="true" />
+          <Property Type="String" Name="Documento" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Division" Nullable="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="Time" Name="Hora" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Atencion_Sucursales">
+          <Key>
+            <PropertyRef Name="Id_AtencionSucursales" />
+          </Key>
+          <Property Name="Id_AtencionSucursales" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_maquila" Type="Int32" />
+          <Property Name="Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Division" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -380,6 +428,31 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Codigo_primera" ColumnName="Codigo_primera" />
                 <ScalarProperty Name="Num_OF" ColumnName="Num_OF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarAS" FunctionName="LMNOP_SystemModel.Store.ConsultarAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMNOP_SystemModel.ConsultarAS_Result">
+                <ScalarProperty Name="Id_AtencionSucursales" ColumnName="Id_AtencionSucursales" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GuardarAS" FunctionName="LMNOP_SystemModel.Store.GuardarAS" />
+          <EntitySetMapping Name="Atencion_Sucursales">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Atencion_Sucursales">
+              <MappingFragment StoreEntitySet="Atencion_Sucursales">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Id_AtencionSucursales" ColumnName="Id_AtencionSucursales" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -85,6 +85,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Css\Css_general.css" />
     <Content Include="Images\lmnop_logo.png" />
     <Content Include="Pages\Atencion_sucursales.aspx" />
     <Content Include="Pages\Centro_servicio.aspx" />
@@ -94,9 +95,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion\AtencionSucursales.cs" />
     <Compile Include="Conexion\CentroServicio.cs" />
     <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="Context\Atencion_Sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\Centro_servicio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ConsultarAS_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Consultar_Result.cs">
@@ -138,6 +146,7 @@
     <Compile Include="Context\Usuarios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\AtencionSucursalesModel.cs" />
     <Compile Include="Modelo\CentroServicioModel.cs" />
     <Compile Include="Pages\Atencion_sucursales.aspx.cs">
       <DependentUpon>Atencion_sucursales.aspx</DependentUpon>
@@ -200,9 +209,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
