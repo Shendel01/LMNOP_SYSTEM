@@ -90,13 +90,13 @@
     <Content Include="Pages\Atencion_sucursales.aspx" />
     <Content Include="Pages\Centro_servicio.aspx" />
     <Content Include="Pages\Index.aspx" />
+    <Content Include="Pages\Llenado_tarimas.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Registrarse.aspx" />
+    <Content Include="Pages\Segundas_CS.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexion\AtencionSucursales.cs" />
-    <Compile Include="Conexion\CentroServicio.cs" />
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Context\Atencion_Sucursales.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -134,6 +134,9 @@
     <Compile Include="Context\Roles_Permisos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\Segundas_CentroServicio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\sp_datos_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -143,11 +146,16 @@
     <Compile Include="Context\sp_permisos_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\Tarimas_CentroServicio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\Usuarios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\AtencionSucursalesModel.cs" />
     <Compile Include="Modelo\CentroServicioModel.cs" />
+    <Compile Include="Modelo\LlenadoTarimasModel.cs" />
+    <Compile Include="Modelo\Segundas_CSModel.cs" />
     <Compile Include="Pages\Atencion_sucursales.aspx.cs">
       <DependentUpon>Atencion_sucursales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -169,6 +177,13 @@
     <Compile Include="Pages\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Llenado_tarimas.aspx.cs">
+      <DependentUpon>Llenado_tarimas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Llenado_tarimas.aspx.designer.cs">
+      <DependentUpon>Llenado_tarimas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,6 +204,13 @@
     </Compile>
     <Compile Include="Pages\Registrarse.aspx.designer.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Segundas_CS.aspx.cs">
+      <DependentUpon>Segundas_CS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Segundas_CS.aspx.designer.cs">
+      <DependentUpon>Segundas_CS.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

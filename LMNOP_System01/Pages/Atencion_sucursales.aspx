@@ -34,8 +34,6 @@
   </div>
 </div>
 
-
-
         <div class="field is-grouped">
             <div class="control">
                 <asp:Button runat="server" ID="Enviar" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="Enviar_Click" Text="Enviar"/>
@@ -43,7 +41,7 @@
         </div>
 
 
-         <div class="table-container bg-color">
+         <div class="table-container">
                    <asp:GridView ID="gridview" runat="server" Height="249px" CssClass="table is-selected">
             </asp:GridView>
            

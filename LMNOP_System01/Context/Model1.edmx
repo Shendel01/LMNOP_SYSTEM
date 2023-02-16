@@ -23,9 +23,6 @@
           <Property Name="Num_OF" Type="int" Nullable="false" />
           <Property Name="Codigo_primera" Type="varchar" MaxLength="100" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" />
-          <Property Name="Num_piezas" Type="int" />
-          <Property Name="Kg" Type="numeric" Precision="20" Scale="6" />
-          <Property Name="Num_tarimas" Type="int" />
           <Property Name="Operadores" Type="varchar" MaxLength="50" />
           <Property Name="Turno" Type="varchar" MaxLength="50" />
           <Property Name="Pedaceria" Type="varchar" MaxLength="50" />
@@ -63,6 +60,25 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Roles_Permisos' no tiene de
           <Property Name="Id_rol" Type="int" />
           <Property Name="Id_Permiso" Type="int" />
           <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Segundas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_segundas" Type="int" />
+          <Property Name="Num_piezas" Type="int" />
+          <Property Name="Kg" Type="numeric" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="Tarimas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_tarima" Type="nchar" MaxLength="2" />
+          <Property Name="Num_maquila" Type="int" />
+          <Property Name="Num_piezas" Type="int" />
+          <Property Name="Kg" Type="numeric" Precision="20" Scale="6" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -121,6 +137,8 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
         <EntityContainer Name="LMNOP_SystemModelStoreContainer">
           <EntitySet Name="Atencion_Sucursales" EntityType="Self.Atencion_Sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Centro_servicio" EntityType="Self.Centro_servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Segundas_CentroServicio" EntityType="Self.Segundas_CentroServicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tarimas_CentroServicio" EntityType="Self.Tarimas_CentroServicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Permisos].[Id_Permiso] AS [Id_Permiso], 
@@ -228,7 +246,6 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
             <Parameter Name="Observaciones" Mode="In" Type="String" />
             <Parameter Name="Total" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="Centro_servicio" EntityType="LMNOP_SystemModel.Centro_servicio" />
           <FunctionImport Name="ConsultarAS" ReturnType="Collection(LMNOP_SystemModel.ConsultarAS_Result)" />
           <FunctionImport Name="GuardarAS">
             <Parameter Name="Id_AtencionSucursales" Mode="In" Type="Int32" />
@@ -238,6 +255,9 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
             <Parameter Name="Hora" Mode="In" Type="Time" />
           </FunctionImport>
           <EntitySet Name="Atencion_Sucursales" EntityType="LMNOP_SystemModel.Atencion_Sucursales" />
+          <EntitySet Name="Centro_servicio" EntityType="LMNOP_SystemModel.Centro_servicio" />
+          <EntitySet Name="Tarimas_CentroServicio" EntityType="LMNOP_SystemModel.Tarimas_CentroServicio" />
+          <EntitySet Name="Segundas_CentroServicio" EntityType="LMNOP_SystemModel.Segundas_CentroServicio" />
         </EntityContainer>
         <ComplexType Name="sp_datos_Result">
           <Property Type="Int32" Name="Id_Usuario" Nullable="false" />
@@ -275,25 +295,6 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="50" />
           <Property Type="Decimal" Name="Total" Nullable="true" Precision="20" Scale="6" />
         </ComplexType>
-        <EntityType Name="Centro_servicio">
-          <Key>
-            <PropertyRef Name="Num_OF" />
-          </Key>
-          <Property Name="Num_OF" Type="Int32" Nullable="false" />
-          <Property Name="Codigo_primera" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Num_piezas" Type="Int32" />
-          <Property Name="Kg" Type="Decimal" Precision="20" Scale="6" />
-          <Property Name="Num_tarimas" Type="Int32" />
-          <Property Name="Operadores" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Pedaceria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Faltante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Sobrante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rechazo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Total" Type="Decimal" Precision="20" Scale="6" />
-        </EntityType>
         <ComplexType Name="ConsultarAS_Result">
           <Property Type="Int32" Name="Id_AtencionSucursales" Nullable="false" />
           <Property Type="Int32" Name="Num_maquila" Nullable="true" />
@@ -312,6 +313,41 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Division" Type="Int32" />
           <Property Name="Fecha" Type="DateTime" Precision="0" />
           <Property Name="Hora" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Centro_servicio">
+          <Key>
+            <PropertyRef Name="Num_OF" />
+          </Key>
+          <Property Name="Num_OF" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_primera" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Operadores" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pedaceria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Faltante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sobrante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rechazo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Decimal" Precision="20" Scale="6" />
+        </EntityType>
+        <EntityType Name="Tarimas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_tarima" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Num_maquila" Type="Int32" />
+          <Property Name="Num_piezas" Type="Int32" />
+          <Property Name="Kg" Type="Decimal" Precision="20" Scale="6" />
+        </EntityType>
+        <EntityType Name="Segundas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_segundas" Type="Int32" />
+          <Property Name="Num_piezas" Type="Int32" />
+          <Property Name="Kg" Type="Decimal" Precision="20" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -411,26 +447,6 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Guardar" FunctionName="LMNOP_SystemModel.Store.Guardar" />
-          <EntitySetMapping Name="Centro_servicio">
-            <EntityTypeMapping TypeName="LMNOP_SystemModel.Centro_servicio">
-              <MappingFragment StoreEntitySet="Centro_servicio">
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-                <ScalarProperty Name="Rechazo" ColumnName="Rechazo" />
-                <ScalarProperty Name="Sobrante" ColumnName="Sobrante" />
-                <ScalarProperty Name="Faltante" ColumnName="Faltante" />
-                <ScalarProperty Name="Pedaceria" ColumnName="Pedaceria" />
-                <ScalarProperty Name="Turno" ColumnName="Turno" />
-                <ScalarProperty Name="Operadores" ColumnName="Operadores" />
-                <ScalarProperty Name="Num_tarimas" ColumnName="Num_tarimas" />
-                <ScalarProperty Name="Kg" ColumnName="Kg" />
-                <ScalarProperty Name="Num_piezas" ColumnName="Num_piezas" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Codigo_primera" ColumnName="Codigo_primera" />
-                <ScalarProperty Name="Num_OF" ColumnName="Num_OF" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ConsultarAS" FunctionName="LMNOP_SystemModel.Store.ConsultarAS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="LMNOP_SystemModel.ConsultarAS_Result">
@@ -453,6 +469,44 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
                 <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
                 <ScalarProperty Name="Id_AtencionSucursales" ColumnName="Id_AtencionSucursales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Centro_servicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Centro_servicio">
+              <MappingFragment StoreEntitySet="Centro_servicio">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Rechazo" ColumnName="Rechazo" />
+                <ScalarProperty Name="Sobrante" ColumnName="Sobrante" />
+                <ScalarProperty Name="Faltante" ColumnName="Faltante" />
+                <ScalarProperty Name="Pedaceria" ColumnName="Pedaceria" />
+                <ScalarProperty Name="Turno" ColumnName="Turno" />
+                <ScalarProperty Name="Operadores" ColumnName="Operadores" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo_primera" ColumnName="Codigo_primera" />
+                <ScalarProperty Name="Num_OF" ColumnName="Num_OF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tarimas_CentroServicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Tarimas_CentroServicio">
+              <MappingFragment StoreEntitySet="Tarimas_CentroServicio">
+                <ScalarProperty Name="Kg" ColumnName="Kg" />
+                <ScalarProperty Name="Num_piezas" ColumnName="Num_piezas" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Num_tarima" ColumnName="Num_tarima" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segundas_CentroServicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Segundas_CentroServicio">
+              <MappingFragment StoreEntitySet="Segundas_CentroServicio">
+                <ScalarProperty Name="Kg" ColumnName="Kg" />
+                <ScalarProperty Name="Num_piezas" ColumnName="Num_piezas" />
+                <ScalarProperty Name="Num_segundas" ColumnName="Num_segundas" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

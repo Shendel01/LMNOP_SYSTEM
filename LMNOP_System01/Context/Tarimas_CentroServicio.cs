@@ -12,18 +12,12 @@ namespace LMNOP_System01.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Centro_servicio
+    public partial class Tarimas_CentroServicio
     {
-        public int Num_OF { get; set; }
-        public string Codigo_primera { get; set; }
-        public string Descripcion { get; set; }
-        public string Operadores { get; set; }
-        public string Turno { get; set; }
-        public string Pedaceria { get; set; }
-        public string Faltante { get; set; }
-        public string Sobrante { get; set; }
-        public string Rechazo { get; set; }
-        public string Observaciones { get; set; }
-        public Nullable<decimal> Total { get; set; }
+        public int Id { get; set; }
+        public string Num_tarima { get; set; }
+        public Nullable<int> Num_maquila { get; set; }
+        public Nullable<int> Num_piezas { get; set; }
+        public Nullable<decimal> Kg { get; set; }
     }
 }

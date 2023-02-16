@@ -10,9 +10,9 @@ namespace LMNOP_System01.Modelo
         public int Num_OF { get;  set; }
         public string Codigo_primera { get; set; }
         public string Descripcion { get; set; }
-        public int Num_piezas { get; set; }
-        public double Kg { get; set; }
-        public int Num_tarimas { get; set; }
+        //public int Num_piezas { get; set; }
+        //public double Kg { get; set; }
+        //public int Num_tarimas { get; set; }
         public string Operadores { get; set; }
         public string Turno { get; set; }
         public string Pedaceria { get; set; }
