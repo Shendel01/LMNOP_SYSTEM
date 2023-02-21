@@ -35,6 +35,8 @@ namespace LMNOP_System01.Context
         public virtual DbSet<Centro_servicio> Centro_servicio { get; set; }
         public virtual DbSet<Tarimas_CentroServicio> Tarimas_CentroServicio { get; set; }
         public virtual DbSet<Segundas_CentroServicio> Segundas_CentroServicio { get; set; }
+        public virtual DbSet<Estatus_CentroServicio> Estatus_CentroServicio { get; set; }
+        public virtual DbSet<Maquila_CentroServicio> Maquila_CentroServicio { get; set; }
     
         public virtual ObjectResult<sp_datos_Result> sp_datos()
         {

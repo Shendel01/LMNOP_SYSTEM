@@ -65,5 +65,10 @@ namespace LMNOP_System01.Pages
             Consultar();
 
         }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Centro_servicio.aspx");
+        }
     }
 }

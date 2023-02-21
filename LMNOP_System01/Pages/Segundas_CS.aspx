@@ -45,5 +45,10 @@
             </asp:GridView>
            
              </div>
+
+        
+         <div>
+             <asp:Button runat="server" ID="back" CssClass="button is-danger is-outlined is-rounded is-medium is-res" OnClick="back_Click" Text="Regresar"/>
+         </div>
     </div>
 </asp:Content>

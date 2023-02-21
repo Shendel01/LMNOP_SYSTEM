@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="LMNOP_System01.Pages.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="prueba.aspx.cs" Inherits="LMNOP_System01.Pages.prueba" %>
+
 
 <!DOCTYPE html>
 
@@ -10,11 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>
 
-        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
-
     </title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="../Css/Css_general.css" rel="stylesheet" />
 </head>
@@ -68,29 +65,36 @@
       </div>
     </div>
 
-    <div class="navbar-end has-text-centered navbar-brand">
-
-      <div class="navbar-item" runat="server" id="divbuttons">
-        <div class="buttons">
-            <asp:Button text="Registrarse" runat="server" CssClass="button is-Dark is-rounded is-responsive" OnClick="Unnamed_Click"/>
-            <asp:Button text="Iniciar sesión" runat="server" CssClass="button is-primary is-light is-rounded is-responsive" OnClick="Unnamed_Click1"/>
-        </div>
-      </div>
-
-    </div>
   </div>
 </nav>
         </header>
-        <div>
-            <asp:ContentPlaceHolder ID="body" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+
+
+             <div class="container box">
+
+                 <div class="field">
+  <label class="label">
+            Número de maquila</label>
+
+  <div class="form">
+    <asp:TextBox runat="server" id="num_maquila" class="input" type="text" placeholder="Ingrese el número de la maquila"></asp:TextBox>
+  </div>
+</div>
+       </div>                                    
+
+
     </form>
+
+
+
+
+
 
     <footer class="footer">
   <div class="content has-text-centered">
     <p>
-      <strong>LMNOP</strong> by <a href="https://jgthms.com">SHENDEL LÓPEZ ALMARAZ</a>
+
+      <strong>LMNOP</strong> by <a href="Centro_servicio.aspx">Centro_servicio.aspx</a>
     </p>
   </div>
 </footer>

@@ -13,6 +13,9 @@
         <EntityTypeShape EntityType="LMNOP_SystemModel.Centro_servicio" Width="1.5" PointX="3.75" PointY="0.75" />
         <EntityTypeShape EntityType="LMNOP_SystemModel.Tarimas_CentroServicio" Width="1.5" PointX="5.375" PointY="3" />
         <EntityTypeShape EntityType="LMNOP_SystemModel.Segundas_CentroServicio" Width="1.5" PointX="7" PointY="0.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Estatus_CentroServicio" Width="1.5" PointX="7" PointY="2.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Maquila_CentroServicio" Width="1.5" PointX="8.625" PointY="0.75" />
+        <AssociationConnector Association="LMNOP_SystemModel.FK__Maquila_C__IdEst__53D770D6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

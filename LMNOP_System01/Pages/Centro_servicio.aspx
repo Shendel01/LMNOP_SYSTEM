@@ -10,7 +10,7 @@
 
         <div class="field">
   <label class="label">
-            Número de OF</label>
+            Número de OFE</label>
 
   <div class="control">
     <asp:TextBox runat="server" id="num_of" class="input" type="text" placeholder="Ingrese el número de OF"></asp:TextBox>
@@ -80,23 +80,23 @@
     <asp:TextBox runat="server" id="total" class="input" type="text" placeholder="Total"></asp:TextBox>
   </div>
 </div>
-
-
          <div class="field is-grouped">
             <div class="control">
                 <asp:Button runat="server" ID="Enviar" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="Enviar_Click" Text="Enviar"/>
             </div>
-
-
-
     </div>
-
-
-            <div class="table-container bg-color">
+            <div class="table-container">
                    <asp:GridView ID="grilla" runat="server" Height="249px" CssClass="table is-selected">
             </asp:GridView>
-           
              </div>
+
+        <div>
+                 <div>
+             <asp:Button runat="server" ID="tarimas" CssClass="button is-info is-rounded is-medium is-res" OnClick="tarimas_Click" Text="Tarimas"/>
+             <asp:Button runat="server" ID="segundas" CssClass="button is-info is-rounded is-medium is-res" OnClick="segundas_Click" Text="Segundas"/>
+             <asp:Button runat="server" ID="back" CssClass="button is-danger is-outlined is-rounded is-medium is-res" OnClick="back_Click" Text="Regresar"/>
+                     </div>
+            </div>
     </div>
 
 </asp:Content>

@@ -99,5 +99,20 @@ namespace LMNOP_System01.Pages
             Consultar();
 
         }
+
+        protected void tarimas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Llenado_tarimas.aspx");
+        }
+
+        protected void segundas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Segundas_CS.aspx");
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
+        }
     }
 }
