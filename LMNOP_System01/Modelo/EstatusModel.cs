@@ -10,7 +10,8 @@ namespace LMNOP_System01.Modelo
 {
     public class EstatusModel
     {
-        public Maquila_CentroServicio maquila_cs { get; set; }
-        public IEnumerable<SelectListItem> ListadoEstatus { get; set; }
+        public int Id { get; set; }
+        public int Maquila { get; set; }
+        public string Estatus { get; set; }
     }
 }

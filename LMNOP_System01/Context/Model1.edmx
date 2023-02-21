@@ -32,20 +32,13 @@
           <Property Name="Observaciones" Type="varchar" MaxLength="50" />
           <Property Name="Total" Type="numeric" Precision="20" Scale="6" />
         </EntityType>
-        <EntityType Name="Estatus_CentroServicio">
+        <EntityType Name="Estatus01_CentroServicio">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Estatus" Type="varchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Maquila_CentroServicio">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdEstatus_CentroServicio" Type="int" Nullable="false" />
           <Property Name="Maquila" Type="int" />
+          <Property Name="Estatus" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Permisos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -108,18 +101,6 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Clave" Type="varchar" MaxLength="50" />
           <Property Name="Id_rol" Type="int" />
         </EntityType>
-        <Association Name="FK__Maquila_C__IdEst__53D770D6">
-          <End Role="Estatus_CentroServicio" Type="Self.Estatus_CentroServicio" Multiplicity="1" />
-          <End Role="Maquila_CentroServicio" Type="Self.Maquila_CentroServicio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estatus_CentroServicio">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Maquila_CentroServicio">
-              <PropertyRef Name="IdEstatus_CentroServicio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Function Name="Consultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ConsultarAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Guardar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -164,8 +145,7 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
         <EntityContainer Name="LMNOP_SystemModelStoreContainer">
           <EntitySet Name="Atencion_Sucursales" EntityType="Self.Atencion_Sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Centro_servicio" EntityType="Self.Centro_servicio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Estatus_CentroServicio" EntityType="Self.Estatus_CentroServicio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Maquila_CentroServicio" EntityType="Self.Maquila_CentroServicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estatus01_CentroServicio" EntityType="Self.Estatus01_CentroServicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Segundas_CentroServicio" EntityType="Self.Segundas_CentroServicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarimas_CentroServicio" EntityType="Self.Tarimas_CentroServicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" store:Type="Tables" store:Schema="dbo">
@@ -198,10 +178,6 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
     [Usuarios].[Id_rol] AS [Id_rol]
     FROM [dbo].[Usuarios] AS [Usuarios]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Maquila_C__IdEst__53D770D6" Association="Self.FK__Maquila_C__IdEst__53D770D6">
-            <End Role="Estatus_CentroServicio" EntitySet="Estatus_CentroServicio" />
-            <End Role="Maquila_CentroServicio" EntitySet="Maquila_CentroServicio" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -291,12 +267,7 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <EntitySet Name="Centro_servicio" EntityType="LMNOP_SystemModel.Centro_servicio" />
           <EntitySet Name="Tarimas_CentroServicio" EntityType="LMNOP_SystemModel.Tarimas_CentroServicio" />
           <EntitySet Name="Segundas_CentroServicio" EntityType="LMNOP_SystemModel.Segundas_CentroServicio" />
-          <EntitySet Name="Estatus_CentroServicio" EntityType="LMNOP_SystemModel.Estatus_CentroServicio" />
-          <EntitySet Name="Maquila_CentroServicio" EntityType="LMNOP_SystemModel.Maquila_CentroServicio" />
-          <AssociationSet Name="FK__Maquila_C__IdEst__53D770D6" Association="LMNOP_SystemModel.FK__Maquila_C__IdEst__53D770D6">
-            <End Role="Estatus_CentroServicio" EntitySet="Estatus_CentroServicio" />
-            <End Role="Maquila_CentroServicio" EntitySet="Maquila_CentroServicio" />
-          </AssociationSet>
+          <EntitySet Name="Estatus01_CentroServicio" EntityType="LMNOP_SystemModel.Estatus01_CentroServicio" />
         </EntityContainer>
         <ComplexType Name="sp_datos_Result">
           <Property Type="Int32" Name="Id_Usuario" Nullable="false" />
@@ -388,35 +359,14 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Num_piezas" Type="Int32" />
           <Property Name="Kg" Type="Decimal" Precision="20" Scale="0" />
         </EntityType>
-        <EntityType Name="Estatus_CentroServicio">
+        <EntityType Name="Estatus01_CentroServicio">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Maquila_CentroServicio" Relationship="LMNOP_SystemModel.FK__Maquila_C__IdEst__53D770D6" FromRole="Estatus_CentroServicio" ToRole="Maquila_CentroServicio" />
-        </EntityType>
-        <EntityType Name="Maquila_CentroServicio">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdEstatus_CentroServicio" Type="Int32" Nullable="false" />
           <Property Name="Maquila" Type="Int32" />
-          <NavigationProperty Name="Estatus_CentroServicio" Relationship="LMNOP_SystemModel.FK__Maquila_C__IdEst__53D770D6" FromRole="Maquila_CentroServicio" ToRole="Estatus_CentroServicio" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__Maquila_C__IdEst__53D770D6">
-          <End Type="LMNOP_SystemModel.Estatus_CentroServicio" Role="Estatus_CentroServicio" Multiplicity="1" />
-          <End Type="LMNOP_SystemModel.Maquila_CentroServicio" Role="Maquila_CentroServicio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estatus_CentroServicio">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Maquila_CentroServicio">
-              <PropertyRef Name="IdEstatus_CentroServicio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -578,19 +528,11 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Estatus_CentroServicio">
-            <EntityTypeMapping TypeName="LMNOP_SystemModel.Estatus_CentroServicio">
-              <MappingFragment StoreEntitySet="Estatus_CentroServicio">
+          <EntitySetMapping Name="Estatus01_CentroServicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Estatus01_CentroServicio">
+              <MappingFragment StoreEntitySet="Estatus01_CentroServicio">
                 <ScalarProperty Name="Estatus" ColumnName="Estatus" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Maquila_CentroServicio">
-            <EntityTypeMapping TypeName="LMNOP_SystemModel.Maquila_CentroServicio">
-              <MappingFragment StoreEntitySet="Maquila_CentroServicio">
                 <ScalarProperty Name="Maquila" ColumnName="Maquila" />
-                <ScalarProperty Name="IdEstatus_CentroServicio" ColumnName="IdEstatus_CentroServicio" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

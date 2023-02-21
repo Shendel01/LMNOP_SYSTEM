@@ -12,12 +12,10 @@ namespace LMNOP_System01.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Maquila_CentroServicio
+    public partial class Estatus01_CentroServicio
     {
         public int Id { get; set; }
-        public int IdEstatus_CentroServicio { get; set; }
         public Nullable<int> Maquila { get; set; }
-    
-        public virtual Estatus_CentroServicio Estatus_CentroServicio { get; set; }
+        public string Estatus { get; set; }
     }
 }
