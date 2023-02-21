@@ -68,7 +68,7 @@ namespace LMNOP_System01.Pages
 
         protected void back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Centro_servicio.aspx");
+            Response.Redirect("Estatus_CS.aspx");
         }
     }
 }

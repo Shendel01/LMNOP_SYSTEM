@@ -92,8 +92,8 @@
 
         <div>
                  <div>
-             <asp:Button runat="server" ID="tarimas" CssClass="button is-info is-rounded is-medium is-res" OnClick="tarimas_Click" Text="Tarimas"/>
-             <asp:Button runat="server" ID="segundas" CssClass="button is-info is-rounded is-medium is-res" OnClick="segundas_Click" Text="Segundas"/>
+            <%-- <asp:Button runat="server" ID="tarimas" CssClass="button is-info is-rounded is-medium is-res" OnClick="tarimas_Click" Text="Tarimas"/>
+             <asp:Button runat="server" ID="segundas" CssClass="button is-info is-rounded is-medium is-res" OnClick="segundas_Click" Text="Segundas"/>--%>
              <asp:Button runat="server" ID="back" CssClass="button is-danger is-outlined is-rounded is-medium is-res" OnClick="back_Click" Text="Regresar"/>
                      </div>
             </div>
