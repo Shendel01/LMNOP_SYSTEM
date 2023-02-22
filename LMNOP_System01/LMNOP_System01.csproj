@@ -114,7 +114,7 @@
     <Content Include="Pages\Index.aspx" />
     <Content Include="Pages\Llenado_tarimas.aspx" />
     <Content Include="Pages\Login.aspx" />
-    <Content Include="Pages\prueba.aspx" />
+    <Content Include="Pages\Estatus_AS.aspx" />
     <Content Include="Pages\Registrarse.aspx" />
     <Content Include="Pages\Segundas_CS.aspx" />
     <Content Include="Web.config" />
@@ -232,12 +232,12 @@
     <Compile Include="Pages\Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\prueba.aspx.cs">
-      <DependentUpon>prueba.aspx</DependentUpon>
+    <Compile Include="Pages\Estatus_AS.aspx.cs">
+      <DependentUpon>Estatus_AS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\prueba.aspx.designer.cs">
-      <DependentUpon>prueba.aspx</DependentUpon>
+    <Compile Include="Pages\Estatus_AS.aspx.designer.cs">
+      <DependentUpon>Estatus_AS.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Registrarse.aspx.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>

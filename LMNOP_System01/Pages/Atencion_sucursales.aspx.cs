@@ -59,5 +59,10 @@ namespace LMNOP_System01.Pages
             };
             Consultar();
         }
+
+        protected void estatus_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Estatus_AS.aspx");
+        }
     }
 }

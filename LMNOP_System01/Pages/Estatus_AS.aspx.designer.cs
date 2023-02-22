@@ -15,21 +15,21 @@ namespace LMNOP_System01.Pages
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control gridview.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.GridView gridview;
 
         /// <summary>
-        /// Control num_maquila.
+        /// Control back.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox num_maquila;
+        protected global::System.Web.UI.WebControls.Button back;
     }
 }

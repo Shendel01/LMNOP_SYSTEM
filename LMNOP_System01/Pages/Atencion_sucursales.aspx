@@ -12,7 +12,7 @@
             Número de maquila</label>
 
   <div class="control">
-    <asp:TextBox runat="server" id="num_maquila" class="input" type="text" placeholder="aaaaa"></asp:TextBox>
+    <asp:TextBox runat="server" id="num_maquila" class="input" type="text" placeholder="Ingrese el número de maquila"></asp:TextBox>
   </div>
 </div>
 
@@ -21,7 +21,7 @@
             Documento</label>
 
   <div class="control">
-    <asp:TextBox runat="server" id="documento" class="input" type="text" placeholder="aaaaa"></asp:TextBox>
+    <asp:TextBox runat="server" id="documento" class="input" type="text" placeholder="Ingrese el número de documento"></asp:TextBox>
   </div>
 </div>
 
@@ -30,7 +30,7 @@
             División</label>
 
   <div class="control">
-    <asp:TextBox runat="server" id="division" class="input" type="text" placeholder="aaaaa"></asp:TextBox>
+    <asp:TextBox runat="server" id="division" class="input" type="text" placeholder="Ingrese la división"></asp:TextBox>
   </div>
 </div>
 
@@ -47,6 +47,11 @@
            
              </div>
 
+         <div class="field is-grouped">
+            <div class="control">
+                <asp:Button runat="server" ID="estatus" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="estatus_Click" Text="Estatus de las maquilas"/>
+            </div>
+        </div>
 
     </div>
 </asp:Content>
