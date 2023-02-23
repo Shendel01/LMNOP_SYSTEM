@@ -16,6 +16,28 @@
           <Property Name="Fecha" Type="date" />
           <Property Name="Hora" Type="nvarchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="Calidad_Detenido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Defecto" Type="varchar" MaxLength="50" />
+          <Property Name="Seguimiento" Type="varchar" MaxLength="50" />
+          <Property Name="Comentario" Type="varchar" MaxLength="150" />
+          <Property Name="Nombre_detenido" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Calidad_Liberacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre_libera" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Centro_servicio">
           <Key>
             <PropertyRef Name="Num_OF" />
@@ -144,6 +166,8 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
         </Function>
         <EntityContainer Name="LMNOP_SystemModelStoreContainer">
           <EntitySet Name="Atencion_Sucursales" EntityType="Self.Atencion_Sucursales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calidad_Detenido" EntityType="Self.Calidad_Detenido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calidad_Liberacion" EntityType="Self.Calidad_Liberacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Centro_servicio" EntityType="Self.Centro_servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estatus01_CentroServicio" EntityType="Self.Estatus01_CentroServicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Segundas_CentroServicio" EntityType="Self.Segundas_CentroServicio" Schema="dbo" store:Type="Tables" />
@@ -268,6 +292,8 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <EntitySet Name="Tarimas_CentroServicio" EntityType="LMNOP_SystemModel.Tarimas_CentroServicio" />
           <EntitySet Name="Segundas_CentroServicio" EntityType="LMNOP_SystemModel.Segundas_CentroServicio" />
           <EntitySet Name="Estatus01_CentroServicio" EntityType="LMNOP_SystemModel.Estatus01_CentroServicio" />
+          <EntitySet Name="Calidad_Detenido" EntityType="LMNOP_SystemModel.Calidad_Detenido" />
+          <EntitySet Name="Calidad_Liberacion" EntityType="LMNOP_SystemModel.Calidad_Liberacion" />
         </EntityContainer>
         <ComplexType Name="sp_datos_Result">
           <Property Type="Int32" Name="Id_Usuario" Nullable="false" />
@@ -366,6 +392,28 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Maquila" Type="Int32" />
           <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Calidad_Detenido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Defecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Seguimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_detenido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Calidad_Liberacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_libera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -533,6 +581,30 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
               <MappingFragment StoreEntitySet="Estatus01_CentroServicio">
                 <ScalarProperty Name="Estatus" ColumnName="Estatus" />
                 <ScalarProperty Name="Maquila" ColumnName="Maquila" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calidad_Detenido">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Calidad_Detenido">
+              <MappingFragment StoreEntitySet="Calidad_Detenido">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Nombre_detenido" ColumnName="Nombre_detenido" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Seguimiento" ColumnName="Seguimiento" />
+                <ScalarProperty Name="Defecto" ColumnName="Defecto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calidad_Liberacion">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Calidad_Liberacion">
+              <MappingFragment StoreEntitySet="Calidad_Liberacion">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Nombre_libera" ColumnName="Nombre_libera" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

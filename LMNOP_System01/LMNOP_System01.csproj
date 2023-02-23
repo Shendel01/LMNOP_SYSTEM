@@ -110,6 +110,9 @@
     <Content Include="Images\lmnop_logo.png" />
     <Content Include="Pages\Atencion_sucursales.aspx" />
     <Content Include="Pages\Centro_servicio.aspx" />
+    <Content Include="Pages\Control_Calidad.aspx" />
+    <Content Include="Pages\C_Detenida.aspx" />
+    <Content Include="Pages\C_Liberada.aspx" />
     <Content Include="Pages\Estatus_CS.aspx" />
     <Content Include="Pages\Index.aspx" />
     <Content Include="Pages\Llenado_tarimas.aspx" />
@@ -122,6 +125,12 @@
   <ItemGroup>
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Context\Atencion_Sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Calidad_Detenido.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Calidad_Liberacion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Centro_servicio.cs">
@@ -179,6 +188,8 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\AtencionSucursalesModel.cs" />
+    <Compile Include="Modelo\CalidadDetenidoModel.cs" />
+    <Compile Include="Modelo\CalidadLiberacionModel.cs" />
     <Compile Include="Modelo\CentroServicioModel.cs" />
     <Compile Include="Modelo\EstatusModel.cs" />
     <Compile Include="Modelo\LlenadoTarimasModel.cs" />
@@ -196,6 +207,27 @@
     </Compile>
     <Compile Include="Pages\Centro_servicio.aspx.designer.cs">
       <DependentUpon>Centro_servicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Control_Calidad.aspx.cs">
+      <DependentUpon>Control_Calidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Control_Calidad.aspx.designer.cs">
+      <DependentUpon>Control_Calidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\C_Detenida.aspx.cs">
+      <DependentUpon>C_Detenida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\C_Detenida.aspx.designer.cs">
+      <DependentUpon>C_Detenida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\C_Liberada.aspx.cs">
+      <DependentUpon>C_Liberada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\C_Liberada.aspx.designer.cs">
+      <DependentUpon>C_Liberada.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Estatus_CS.aspx.cs">
       <DependentUpon>Estatus_CS.aspx</DependentUpon>

@@ -49,7 +49,7 @@
 
          <div class="field is-grouped">
             <div class="control">
-                <asp:Button runat="server" ID="estatus" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="estatus_Click" Text="Estatus de las maquilas"/>
+                <asp:Button runat="server" ID="estatus" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="estatus_Click" Text="Enviar"/>
             </div>
         </div>
 
