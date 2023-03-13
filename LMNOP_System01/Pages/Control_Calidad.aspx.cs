@@ -16,12 +16,12 @@ namespace LMNOP_System01.Pages
 
         protected void liberada_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Liberada_C.aspx");
+            Response.Redirect("C_Liberada.aspx");
         }
 
         protected void detenida_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Detenida_C.aspx");
+            Response.Redirect("C_Detenida.aspx");
         }
     }
 }

@@ -18,6 +18,7 @@ namespace LMNOP_System01.Context
         public string Estatus { get; set; }
         public string Nombre_libera { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<int> Num_maquila { get; set; }
         public string Hora { get; set; }
     }
 }

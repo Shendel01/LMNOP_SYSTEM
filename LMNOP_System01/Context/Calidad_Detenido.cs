@@ -19,6 +19,9 @@ namespace LMNOP_System01.Context
         public string Seguimiento { get; set; }
         public string Comentario { get; set; }
         public string Nombre_detenido { get; set; }
+        public Nullable<int> Num_maquila { get; set; }
+        public string Tipo_defecto { get; set; }
+        public string Reproceso { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
         public string Hora { get; set; }
     }

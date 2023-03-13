@@ -27,6 +27,9 @@ namespace LMNOP_System01.Pages
                         Defecto = item.Defecto,
                         Nombre_detenido = item.Nombre_detenido,
                         Seguimiento = item.Seguimiento,
+                        Num_maquila = Convert.ToInt32(item.Num_maquila),
+                        Tipo_defecto = item.Tipo_defecto,
+                        Reproceso = item.Reproceso,
                         Fecha = Convert.ToDateTime(item.Fecha).ToLongDateString(),
                         Hora = item.Hora /*(TimeSpan)item.Hora*/
                     });
@@ -48,11 +51,13 @@ namespace LMNOP_System01.Pages
             {
                 entities.Calidad_Detenido.Add(new LMNOP_System01.Context.Calidad_Detenido
                 {
-
                     Comentario = comentario.Text,
                     Defecto = defecto.Text,
                     Nombre_detenido = nombre_detenido.Text,
                     Seguimiento = seguimiento.Text,
+                    Num_maquila = int.Parse(num_maquila.Text),
+                    Tipo_defecto = tipo_defecto.Text,
+                    Reproceso = reproceso.Text,
                     Fecha = DateTime.Now,
                     Hora = DateTime.Now.ToString("HH:mm:ss")
                 });
@@ -61,5 +66,15 @@ namespace LMNOP_System01.Pages
             Consultar();
 
         }
+
+        protected void estatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void regresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Control_Calidad.aspx");
+        }  
     }
 }

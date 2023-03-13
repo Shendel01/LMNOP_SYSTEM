@@ -8,14 +8,14 @@
     <div class="container box">
 
         <div>
-        <label>¡Bienvenido al área de calidad!</label>
+        <h1><label>¡Bienvenido al área de calidad!</label></h1> 
             </div>
         <div>
         <label>
             Por favor, seleccione una de las siguientes opciones.
         </label>
         </div>
-
+                    <br />
         <div class="field is-grouped">
             <div class="control">
                 <asp:Button runat="server" ID="liberada" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="liberada_Click" Text="Liberada"/>

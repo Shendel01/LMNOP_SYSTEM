@@ -15,6 +15,33 @@ namespace LMNOP_System01.Pages
     {
 
         /// <summary>
+        /// Control estatus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button estatus;
+
+        /// <summary>
+        /// Control num_maquila.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox num_maquila;
+
+        /// <summary>
+        /// Control tipo_defecto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tipo_defecto;
+
+        /// <summary>
         /// Control defecto.
         /// </summary>
         /// <remarks>
@@ -51,6 +78,15 @@ namespace LMNOP_System01.Pages
         protected global::System.Web.UI.WebControls.TextBox nombre_detenido;
 
         /// <summary>
+        /// Control reproceso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reproceso;
+
+        /// <summary>
         /// Control Enviar.
         /// </summary>
         /// <remarks>
@@ -67,5 +103,14 @@ namespace LMNOP_System01.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridview;
+
+        /// <summary>
+        /// Control regresar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button regresar;
     }
 }
